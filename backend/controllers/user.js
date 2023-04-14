@@ -1,12 +1,16 @@
 const User = require('../models/user');
 const catchAsync = require('../utils/catchAsync');
-
+const bcrypt = require("bcrypt");
 
 module.exports = {
     login: catchAsync(async (req, res) => {
-        const {rollNo=1, password=1} = req.body;
-        const user = await User.findOne({rollNo,password});
-        if(!user) {
+        let {rollNo=1, password=1} = req.body;
+        // const salt = bcrypt.genSaltSync(10);
+        // password = bcrypt.hashSync(password.toString(), salt);
+        const user = await User.findOne({rollNo});
+        const passMatch = await bcrypt.compare(password,user.password); 
+        console.log(rollNo,password,user);
+        if(!passMatch) {
             res.json({});
         }
         else {
