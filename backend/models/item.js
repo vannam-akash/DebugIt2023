@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
-  itemCode: {
-    type: Number,
-    required: true,
-  },
   category: {
     type: String,
     enum: [
@@ -18,24 +14,24 @@ const itemSchema = new Schema({
       "Personal belongings",
       "Miscellaneous",
     ],
-    required: true,
+    // required: true,
   },
   desc: {
     type: String,
-    required: true,
+    // required: true,
   },
   foundDate: {
-    type: Date,
-    required: true,
+    type: String,
+    // required: true,
   },
   foundLocation: {
     type: String,
-    required: true,
+    // required: true,
   },
   finder: {
     type: Schema.Types.ObjectId,
     ref: "User",
-    required: true
+    // required: true
   },
   claims: [{
     type: Schema.Types.ObjectId,

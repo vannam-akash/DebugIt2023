@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const items = require('../controllers/item');
 
+router.route('/')
+    .get(items.index)
+
 router.route('/report')
-    .get(items.reportItem);
+    .post(items.reportItem);
 
 module.exports = router;
