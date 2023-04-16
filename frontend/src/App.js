@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import ReportedItems from './pages/ReportedItems';
 import ReportItemsForm from './pages/ReportItemForm';
 import UserProfile from './pages/UserProfile';
+import UserRegister from './pages/UserRegister';
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
       handleLogout();
     }
     else{
-      navigate('/users/login')
+      navigate('/users/enter')
     }
   }
   return (
@@ -44,9 +45,10 @@ function App() {
         <Route exact path="/" element={<Home/>}/>
         <Route  exact path="/items" element={<ReportedItems />} />
         <Route  exact path="/items/new" element={<ReportItemsForm />} />
-        <Route exact path="/users/login" element={<UserLoginForm />} />
-        <Route  exact path="/items/:id" element={<ReportedItem />} />
+        <Route exact path="/users/enter" element={<UserLoginForm />} />
+        <Route  exact path="/users/new" element={<UserRegister />} />
         <Route  exact path="/users/:id" element={<UserProfile />} />
+        <Route  exact path="/items/:id" element={<ReportedItem />} />
         <Route  exact path="*" element={<NotFound />} />
       </Routes>
       </div>

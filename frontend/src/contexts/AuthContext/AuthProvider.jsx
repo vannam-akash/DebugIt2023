@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
   const handleLogin = (userId) => {
     setIsLoggedIn(true);
     localStorage.setItem("userId", userId);
-    navigate(-1);
+    navigate(`/users/${userId}`);
   };
 
   const handleLogout = () => {

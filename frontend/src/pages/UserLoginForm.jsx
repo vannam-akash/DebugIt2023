@@ -12,10 +12,13 @@ const UserLogin = () => {
     e.preventDefault();
 
     const formData = { rollNo, password };
-
+    console.log(formData);
+    
     try {
       const res = await axios.post('http://localhost:5000/users/login', formData);
       const user = res.data;
+      console.log(user);
+      
       if(user=={}) console.log("User not found!!")
       else {
         handleLogin(user._id);

@@ -11,9 +11,13 @@ const CustomNavbar = ({onLoginClick, onReportItemClick }) => {
   const navigate = useNavigate();
   
   const onProfileClick = () => {
-    if(uId)console.log(`/users/${uId}`)
     if(uId)navigate(`/users/${uId}`)
-  }
+  };
+
+  const onRegisterClick = () => {
+    navigate(`/users/new`)
+  };
+  
   const { isLoggedIn } = useContext(AuthContext);
   return (
     <Navbar bg="dark" variant="dark" expand="md">
@@ -46,6 +50,11 @@ const CustomNavbar = ({onLoginClick, onReportItemClick }) => {
           </Button>:
           <Button className='mr-3' variant="success" onClick={onLoginClick}>
             Login
+          </Button>
+        }
+        {isLoggedIn ? null:
+          <Button className='mr-3' variant="success" onClick={onRegisterClick}>
+            Register
           </Button>
         }
         </Nav>

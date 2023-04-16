@@ -11,7 +11,7 @@ async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/debugit23");
   console.log("Sucessfully connected to mongoose!");
 
-  await User.deleteMany({});
+  await User.deleteMany();
 
   let users = [
     {
