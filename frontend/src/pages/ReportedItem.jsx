@@ -1,19 +1,26 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ItemDetails from "../components/ItemDetails";
 import FinderDetails from "../components/FinderDetails";
 import ListClaims from "../components/ListClaims";
 import ClaimBtn from "../components/ClaimBtn";
+import DeleteButton from "../components/DeleteItemBtn";
+
 
 function ReportedItem() {
   const { id } = useParams();
   const [item, setItem] = useState({});
   const uId = localStorage.getItem("userId");
+  const navigate = useNavigate();
 
   const fetchItem = async () => {
+    // if(uId!=item.finder._id) {
+    //   console.log("Your are not ")
+    // }
     try {
+      
       const res = await axios.get(`http://localhost:5000/items/${id}`);
       setItem(res.data);
     } catch (err) {
@@ -28,6 +35,8 @@ function ReportedItem() {
           `http://localhost:5000/items/${id}/claims/${uId}`
         );
         console.log(res.data);
+        navigate(`/items/${id}`);
+        console.log("navigated");
       } catch (err) {
         console.error(err);
       }
@@ -57,8 +66,11 @@ function ReportedItem() {
         (item.claims.includes(uId) || item.finder) == uId ? null : (
           )
           ) : null} */}
-          <ClaimBtn handleOwnership={handleOwnership} />
-      <ListClaims item={item}></ListClaims>
+          <div className="text-center mt-4 d-flex justify-content-center align-items-center">
+          <ClaimBtn  handleOwnership={handleOwnership} />
+          {item.finder?uId==item.finder._id?<DeleteButton item={item} />:null:null}
+          </div>
+      <ListClaims item={item}/>
     </>
   );
 }

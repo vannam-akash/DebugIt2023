@@ -17,7 +17,7 @@ const CustomNavbar = ({onLoginClick, onReportItemClick }) => {
   const { isLoggedIn } = useContext(AuthContext);
   return (
     <Navbar bg="dark" variant="dark" expand="md">
-      <Navbar.Brand className='ml-3'>Icon here</Navbar.Brand>
+      <Navbar.Brand className='ml-3'>Lost&Found</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
