@@ -2,6 +2,9 @@ import { Card} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const ReportedItemCard = ({ item }) => {
+  const isUId = ()=>{
+    return localStorage.getItem("userId");
+  }
   return (
     <div className="reported-item">
       <Card
@@ -17,10 +20,11 @@ const ReportedItemCard = ({ item }) => {
           <Card.Subtitle className="mb-3 mt-1">
             <u>Description:</u> {item.desc}
           </Card.Subtitle>
-
+          {isUId()?
           <Link to={`/items/${item._id}`} className="btn btn-success mb-2" variant="success">
             Read More
-          </Link>
+          </Link>:null
+          }
         </Card.Body>
       </Card>
     </div>

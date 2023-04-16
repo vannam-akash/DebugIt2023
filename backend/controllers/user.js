@@ -16,4 +16,9 @@ module.exports = {
             res.json(user);
         }
     }),
+    showUser: catchAsync(async(req,res)=>{
+        const {id} = req.params;
+        const user = await User.findById(id);
+        res.json(user);
+    })
 }

@@ -11,6 +11,7 @@ import ReportedItem from './pages/ReportedItem';
 import Footer from './components/Footer'
 import ReportedItems from './pages/ReportedItems';
 import ReportItemsForm from './pages/ReportItemForm';
+import UserProfile from './pages/UserProfile';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route  exact path="/items/new" element={<ReportItemsForm />} />
         <Route exact path="/users/login" element={<UserLoginForm />} />
         <Route  exact path="/items/:id" element={<ReportedItem />} />
+        <Route  exact path="/users/:id" element={<UserProfile />} />
         <Route  exact path="*" element={<NotFound />} />
       </Routes>
       </div>

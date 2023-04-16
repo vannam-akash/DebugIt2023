@@ -26,5 +26,14 @@ module.exports = {
             await item.save();
         }
         res.json(item);
+    }),
+    newItem: catchAsync(async(req,res)=>{
+        const {category, desc,foundDate,foundLocation,finder} = req.body;
+        console.log(category, desc,foundDate,foundLocation,finder);
+        const item = new Item({category, desc,foundDate,foundLocation,finder});
+        await item.save();
+        console.log(item);
+        
+        res.json(item);
     })
 }

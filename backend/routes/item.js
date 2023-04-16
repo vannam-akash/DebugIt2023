@@ -11,6 +11,9 @@ router.route('/report')
 router.route('/:id/claims/:cId')
     .put(items.setClaim);
 
+router.route('/new')
+    .post(items.newItem);
+
 router.route('/:id')
     .get(items.showItem);
 
