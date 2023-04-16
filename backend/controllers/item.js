@@ -35,5 +35,19 @@ module.exports = {
         console.log(item);
         
         res.json(item);
+    }),
+    deleteItem: catchAsync(async(req,res)=>{
+        const {id}= req.params;
+        const item = await Item.findByIdAndDelete(id).populate('finder');
+        console.log(item);
+        res.send(item);
+    }),
+    updateItem: catchAsync(async(req,res)=>{
+        const {category, desc,foundDate,foundLocation,finder} = req.body;
+        console.log(category, desc,foundDate,foundLocation,finder);
+        const item = new Item({category, desc,foundDate,foundLocation,finder});
+        await item.save();
+        console.log(item);
+        res.json(item);
     })
 }

@@ -7,14 +7,17 @@ router.route('/')
     
 router.route('/report')
     .post(items.reportItem);
+    
+router.route('/new')
+    .post(items.newItem);
 
 router.route('/:id/claims/:cId')
     .put(items.setClaim);
 
-router.route('/new')
-    .post(items.newItem);
 
 router.route('/:id')
-    .get(items.showItem);
+    .get(items.showItem)
+    // .put(items.updateItem);
+    .delete(items.deleteItem);
 
 module.exports = router;
