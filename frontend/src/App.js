@@ -1,18 +1,27 @@
 import './App.css';
 import { useContext } from 'react';
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import UserLoginForm from "./components/UserLoginForm";
-// import AuthProvider from "./contexts/AuthContext/AuthProvider";
-import Home from "./components/Home";
+import UserLoginForm from "./pages/UserLoginForm";
+import Home from "./pages/Home";
 import AuthContext from './contexts/AuthContext/AuthContext';
-import NotFound from './components/NotFound';
+import NotFound from './pages/NotFound';
+import ReportedItem from './pages/ReportedItem';
+import Footer from './components/Footer'
+import ReportedItems from './pages/ReportedItems';
+import ReportItemsForm from './pages/ReportItemForm';
 
 
 function App() {
   const { isLoggedIn, handleLogout } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  function onReportItemClick(e) {
+    e.preventDefault();
+    navigate('/items/new')
+  }
+
   function onLoginClick(e) {
     e.preventDefault();
     if(isLoggedIn){
@@ -23,18 +32,24 @@ function App() {
     }
   }
   return (
-    <>
-    {/* <AuthProvider> */}
+    <div id='pageContainer'>
       <Navbar
+        id="myNav"
         onLoginClick={onLoginClick}
-      />
+        onReportItemClick={onReportItemClick}
+        />
+      <div id='content'>
       <Routes>
-        <Route  exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home/>}/>
+        <Route  exact path="/items" element={<ReportedItems />} />
+        <Route  exact path="/items/new" element={<ReportItemsForm />} />
         <Route exact path="/users/login" element={<UserLoginForm />} />
-        <Route  exact path="/*" element={<NotFound />} />
+        <Route  exact path="/items/:id" element={<ReportedItem />} />
+        <Route  exact path="*" element={<NotFound />} />
       </Routes>
-    {/* </AuthProvider> */}
-    </>
+      </div>
+      <Footer id='footer'/>
+    </div>
   );
     
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+// import logo1 from '../assets/logo2.jpg';
 import PropTypes from 'prop-types'
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import { useContext } from 'react';
@@ -9,12 +10,15 @@ const CustomNavbar = ({onLoginClick, onReportItemClick }) => {
   const { isLoggedIn } = useContext(AuthContext);
   return (
     <Navbar bg="dark" variant="dark" expand="md">
-      <Navbar.Brand className='ml-3'>Lost and Found</Navbar.Brand>
+      <Navbar.Brand className='ml-3'>Icon here</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Item>
             <Nav.Link as={Link} to="/">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={Link} to="/items" >Reported Items</Nav.Link>
           </Nav.Item>
           {isLoggedIn ? (
             <Nav.Item>

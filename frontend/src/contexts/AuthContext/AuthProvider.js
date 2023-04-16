@@ -23,6 +23,7 @@ const AuthProvider = ({ children }) => {
   const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem('userId');
+    localStorage.removeItem('isClaimed');
     navigate('/');
   };
 

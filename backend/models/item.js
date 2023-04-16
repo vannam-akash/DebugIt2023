@@ -35,7 +35,7 @@ const itemSchema = new Schema({
   },
   claims: [{
     type: Schema.Types.ObjectId,
-    // default: [],
+    default: [],
     ref: 'User'
   }]
 });

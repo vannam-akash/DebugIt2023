@@ -9,7 +9,6 @@ module.exports = {
         // password = bcrypt.hashSync(password.toString(), salt);
         const user = await User.findOne({rollNo});
         const passMatch = await bcrypt.compare(password,user.password); 
-        console.log(rollNo,password,user);
         if(!passMatch) {
             res.json({});
         }
