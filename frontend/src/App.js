@@ -13,6 +13,7 @@ import ReportedItems from './pages/ReportedItems';
 import ReportItemsForm from './pages/ReportItemForm';
 import UserProfile from './pages/UserProfile';
 import UserRegister from './pages/UserRegister';
+import UpdateReportedItem from './pages/UpdateReportedItem';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         <Route  exact path="/items/new" element={<ReportItemsForm />} />
         <Route exact path="/users/enter" element={<UserLoginForm />} />
         <Route  exact path="/users/new" element={<UserRegister />} />
+        <Route  exact path="/items/:id/edit" element={<UpdateReportedItem />} />
         <Route  exact path="/users/:id" element={<UserProfile />} />
         <Route  exact path="/items/:id" element={<ReportedItem />} />
         <Route  exact path="*" element={<NotFound />} />

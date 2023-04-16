@@ -21,7 +21,7 @@ function DeleteButton({ item }) {
   };
 
   return (
-    <div className="ms-2">
+    <div className="ms-5">
       <Button
         variant="danger"
         onClick={() => setShowModal(true)}

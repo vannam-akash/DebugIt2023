@@ -7,7 +7,7 @@ import FinderDetails from "../components/FinderDetails";
 import ListClaims from "../components/ListClaims";
 import ClaimBtn from "../components/ClaimBtn";
 import DeleteButton from "../components/DeleteItemBtn";
-
+import UpdateBtn from "../components/UpdateBtn";
 
 function ReportedItem() {
   const { id } = useParams();
@@ -34,7 +34,6 @@ function ReportedItem() {
         const res = await axios.put(
           `http://localhost:5000/items/${id}/claims/${uId}`
         );
-        console.log(res.data);
         navigate(`/items/${id}`);
         console.log("navigated");
       } catch (err) {
@@ -69,7 +68,9 @@ function ReportedItem() {
           <div className="text-center mt-4 d-flex justify-content-center align-items-center">
           <ClaimBtn  handleOwnership={handleOwnership} />
           {item.finder?uId==item.finder._id?<DeleteButton item={item} />:null:null}
+          {item.finder?uId==item.finder._id?<UpdateBtn item={item} />:null:null}
           </div>
+
       <ListClaims item={item}/>
     </>
   );

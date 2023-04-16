@@ -5,7 +5,7 @@ function ClaimBtn({handleOwnership}) {
   return (
     <>
       <Button id="claimBtn" onClick={handleOwnership} variant="success">
-        Claim ownership
+        Claim Ownership
       </Button>
     </>
   );

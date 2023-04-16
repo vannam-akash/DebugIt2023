@@ -18,8 +18,6 @@ function UserRegister() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     const formData = {name,rollNo,phoneNumber,email,password};
-    console.log(formData);
-    console.log("Submitting new user data....");
     const res = await axios.post(`http://localhost:5000/users/new`,formData);
     const newUser = res.data;
     console.log(newUser);

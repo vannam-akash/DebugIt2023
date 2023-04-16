@@ -21,7 +21,7 @@ async function main() {
       desc: "Black wired headphones",
       foundDate: now,
       foundLocation: "G4 hall",
-      finder: "643957c0bca925a1e58df2c7",
+      finder: "643c3d86ddd3d74f1dd21128",
       claims: []
     },
     {
@@ -29,7 +29,7 @@ async function main() {
       desc: "Milton water bottle",
       foundDate: now,
       foundLocation: "Limbdi Corner",
-      finder: "643957c0bca925a1e58df2c7",
+      finder: "643c3d86ddd3d74f1dd21128",
       claims: []
     },
     {
@@ -37,7 +37,7 @@ async function main() {
       desc: "Health Diary",
       foundDate: now,
       foundLocation: "Student Health-Care Centre",
-      finder: "643957c0bca925a1e58df2c7",
+      finder: "643c3d86ddd3d74f1dd21128",
       claims: []
     },
     {
@@ -45,7 +45,7 @@ async function main() {
       desc: "Badmitton Racket",
       foundDate: now,
       foundLocation: "SAC",
-      finder: "643957c0bca925a1e58df2c7",
+      finder: "643c3d86ddd3d74f1dd21128",
       claims: []
     },
     {
@@ -53,7 +53,7 @@ async function main() {
       desc: "5000 INR",
       foundDate: now,
       foundLocation: "LT-1",
-      finder: "643957c0bca925a1e58df2c7",
+      finder: "643c3d86ddd3d74f1dd21128",
       claims: []
     },
   ];
