@@ -25,7 +25,6 @@ module.exports = {
     const { name, rollNo, phoneNumber, email, password } = req.body;
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password.toString(), salt);
-    // user.password = hash
     const newUser = new User({ name, rollNo, phoneNumber, email, password:hash });
     await newUser.save();
     res.json(newUser);

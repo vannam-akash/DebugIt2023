@@ -14,10 +14,9 @@ router.route('/new')
 router.route('/:id/claims/:cId')
     .put(items.setClaim);
 
-
 router.route('/:id')
     .get(items.showItem)
-    // .put(items.updateItem);
+    .put(items.updateItem)
     .delete(items.deleteItem);
 
 module.exports = router;
