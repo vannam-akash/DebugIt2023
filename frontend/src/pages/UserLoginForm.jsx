@@ -29,7 +29,7 @@ const UserLogin = () => {
   };
 
   return (
-    <Card className="mx-auto mt-5" style={{ maxWidth: '500px' }}>
+    <Card className="mx-auto mt-5 border border-dark" style={{ maxWidth: '500px' }}>
       <Card.Body shadow="lg">
         <h2 className="text-center mb-4 text-decoration-underline"> User Log In</h2>
         <Form onSubmit={handleSubmit}>

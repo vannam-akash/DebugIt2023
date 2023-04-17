@@ -9,7 +9,7 @@ const ReportedItemCard = ({ item }) => {
     <div className="reported-item">
       <Card
         key={item._id}
-        className="container mt-3 w-50"
+        className="container mt-3 w-50 border border-success"
         bg="dark"
         text="light"
       >

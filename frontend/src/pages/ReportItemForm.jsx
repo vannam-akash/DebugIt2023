@@ -1,14 +1,16 @@
 import { useState } from "react";
-
 import { Form, Button } from "react-bootstrap";
 import SelectInput from "../components/SelectInput";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import UploadWidget from "../components/UploadWidget";
+
 
 function ReportItemForm() {
   const uId = localStorage.getItem("userId");
   const [category, setCategory] = useState();
   const [desc, setDesc] = useState("");
+  const [imgs, setImgs] = useState([]);
   const [foundDate, setFoundDate] = useState("");
   const [foundLocation, setFoundLocation] = useState("");
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ function ReportItemForm() {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    const formData = {category, desc,foundDate,foundLocation,finder:uId};
+    const formData = {category, desc,foundDate,foundLocation,imgs,finder:uId};
 
     try {
       const res = await axios.post('http://localhost:5000/items/new', formData);
@@ -27,7 +29,7 @@ function ReportItemForm() {
       console.error(err);
     }
     
-    console.log(category, desc, foundDate, foundLocation,uId);
+    // console.log(formData);
   };
 
   const handleCategoryChange = (value) => {
@@ -36,8 +38,8 @@ function ReportItemForm() {
 
   return (
     <>
-    <h2 className="text-center mt-5 text-decoration-underline">Report Item:</h2>
-    <Form onSubmit={handleSubmit} className=" card container w-50 mt-3 black" >
+    <Form onSubmit={handleSubmit} className=" card container w-50 mt-5 border border-dark" encType="multipart/form-data">
+      <h2 className="text-center mt-4 text-decoration-underline">Report Item:</h2>
       <Form.Group controlId="category" className="mt-3">
         <Form.Label>Category</Form.Label>
         <SelectInput
@@ -50,12 +52,17 @@ function ReportItemForm() {
         <Form.Label>Description</Form.Label>
         <Form.Control
         required
-          as="textarea"
-          rows={3}
-          placeholder="Enter description"
-          value={desc}
-          onChange={(e) => setDesc(e.target.value)}
+        as="textarea"
+        rows={3}
+        placeholder="Enter description"
+        value={desc}
+        onChange={(e) => setDesc(e.target.value)}
         />
+      </Form.Group>
+
+      <Form.Group controlId="img" className="mt-3" multiple>
+        <Form.Label>Image:</Form.Label>
+        <UploadWidget setImgs={setImgs} imgs={imgs}/>
       </Form.Group>
 
       <Form.Group controlId="foundDate" className="mt-3">

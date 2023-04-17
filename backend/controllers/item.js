@@ -27,12 +27,11 @@ module.exports = {
     res.json(item);
   }),
   newItem: catchAsync(async (req, res) => {
-    const { category, desc, foundDate, foundLocation, finder } = req.body;
-    console.log(category, desc, foundDate, foundLocation, finder);
-    const item = new Item({ category, desc, foundDate, foundLocation, finder });
+    const it = req.body;
+    console.log(it);
+    const item = new Item(it);
     await item.save();
     console.log(item);
-
     res.json(item);
   }),
   deleteItem: catchAsync(async (req, res) => {
@@ -43,13 +42,14 @@ module.exports = {
   }),
   updateItem: catchAsync(async (req, res) => {
     const { id } = req.params;
-    const { category, desc, foundDate, foundLocation } = req.body;
-    console.log({ category, desc, foundDate, foundLocation });
+    const { category, desc, foundDate, foundLocation,imgs } = req.body;
+    console.log({ category, desc, foundDate, foundLocation,imgs });
     const item = await Item.findByIdAndUpdate(id, {
       category,
       desc,
       foundDate,
-      foundLocation
+      foundLocation,
+      imgs
     });
     await item.save();
     res.json(item);

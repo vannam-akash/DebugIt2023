@@ -23,10 +23,16 @@ function ReportedItem() {
       
       const res = await axios.get(`http://localhost:5000/items/${id}`);
       setItem(res.data);
+      // console.log("This is the set item",item)
     } catch (err) {
       console.error(err);
     }
   };
+  useEffect(()=>{
+    // console.log(item);
+      console.log("This is the set item",item)
+    
+  },[item])
 
   function handleOwnership() {
     async function setClaim() {

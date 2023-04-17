@@ -20,6 +20,10 @@ const itemSchema = new Schema({
     type: String,
     // required: true,
   },
+  imgs: [{
+    type: String,
+    // required: true
+  }],
   foundDate: {
     type: String,
     // required: true,
