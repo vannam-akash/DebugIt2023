@@ -21,7 +21,7 @@ function ReportedItem() {
     // }
     try {
       
-      const res = await axios.get(`http://localhost:5000/items/${id}`);
+      const res = await axios.get(`https://lostandfoundbackend-8xry.onrender.com/items/${id}`);
       setItem(res.data);
       // console.log("This is the set item",item)
     } catch (err) {
@@ -38,7 +38,7 @@ function ReportedItem() {
     async function setClaim() {
       try {
         const res = await axios.put(
-          `http://localhost:5000/items/${id}/claims/${uId}`
+          `https://lostandfoundbackend-8xry.onrender.com/items/${id}/claims/${uId}`
         );
         navigate(`/items/${id}`);
         console.log("navigated");
