@@ -10,6 +10,7 @@ module.exports = {
   }),
   index: catchAsync(async (req, res) => {
     const items = await Item.find().populate("finder").populate("claims");
+    console.log(items);
     res.json(items);
   }),
   showItem: catchAsync(async (req, res) => {
