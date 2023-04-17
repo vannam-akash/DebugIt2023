@@ -18,7 +18,7 @@ function UserRegister() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     const formData = {name,rollNo,phoneNumber,email,password};
-    const res = await axios.post(`http://localhost:5000/users/new`,formData);
+    const res = await axios.post(`https://lostandfoundbackend-8xry.onrender.com/users/new`,formData);
     const newUser = res.data;
     console.log(newUser);
     handleLogin(newUser._id);
