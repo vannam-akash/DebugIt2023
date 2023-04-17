@@ -21,7 +21,7 @@ function ReportItemForm() {
     const formData = {category, desc,foundDate,foundLocation,imgs,finder:uId};
 
     try {
-      const res = await axios.post('http://localhost:5000/items/new', formData);
+      const res = await axios.post('https://lostandfoundbackend-8xry.onrender.com/items/new', formData);
       const newItem = res.data;
       console.log(newItem);
       navigate(`/items/${newItem._id}`)
