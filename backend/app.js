@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
@@ -11,12 +15,11 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-console.log(uri)
 // Connect to MongoDB
 main().catch(err => console.log('There was an error connecting to mongoose :(', err));
 async function main() {
-  // await mongoose.connect(uri,{useNewUrlParser:true});
-  await mongoose.connect('mongodb://0.0.0.0:27017/debugit23');
+  await mongoose.connect(uri,{useNewUrlParser:true});
+  // await mongoose.connect('mongodb://0.0.0.0:27017/debugit23');
   console.log('Sucessfully connected to mongoose!')
 }
 
