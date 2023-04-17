@@ -18,7 +18,7 @@ function UpdateReportedItem() {
 
   const fetchItem = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/items/${id}`);
+      const res = await axios.get(`https://lostandfoundbackend-8xry.onrender.com/items/${id}`);
       const item = res.data;
       setItem(item);
       setCategory(item.category);
