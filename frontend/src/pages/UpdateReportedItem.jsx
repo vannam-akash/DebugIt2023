@@ -44,7 +44,7 @@ function UpdateReportedItem() {
 
     try {
       const res = await axios.put(
-        `http://localhost:5000/items/${item._id}`,
+        `https://lostandfoundbackend-8xry.onrender.com/items/${item._id}`,
         formData
       );
       const editedItem = res.data;

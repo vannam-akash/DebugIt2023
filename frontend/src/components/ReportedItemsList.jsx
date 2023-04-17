@@ -8,7 +8,7 @@ const ReportedItemsList = () => {
   useEffect(() => {
     const fetchReportedItems = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/items');
+        const res = await axios.get('https://lostandfoundbackend-8xry.onrender.com/items');
         setReportedItems(res.data);
       } catch (err) {
         console.error(err);

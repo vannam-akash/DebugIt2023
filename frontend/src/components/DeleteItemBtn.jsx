@@ -11,7 +11,7 @@ function DeleteButton({ item }) {
     setShowModal(false);
     console.log("Deleting item with item id: ",item._id);
     try {
-        const res = await axios.delete(`http://localhost:5000/items/${item._id}`)
+        const res = await axios.delete(`https://lostandfoundbackend-8xry.onrender.com/items/${item._id}`)
         const deletedItem = res.data;
         console.log(deletedItem);
         navigate('/items');
