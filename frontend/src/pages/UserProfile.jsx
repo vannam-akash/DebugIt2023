@@ -11,7 +11,7 @@ function UserProfile() {
     useEffect(()=>{
         const fetchUserData= async()=>{
             console.log("sending data");
-            const res = await axios.get(`http://localhost:5000/users/${id}`)
+            const res = await axios.get(`https://lostandfoundbackend-8xry.onrender.com/users/${id}`)
             setUser(res.data);
             console.log(res.data, user);
         }
